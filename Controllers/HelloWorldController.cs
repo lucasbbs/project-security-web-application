@@ -11,6 +11,7 @@ namespace WebApplication1.Controllers
         }
         public IActionResult Welcome(string name, int numTimes = 1)
         {
+            // return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
             // return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
             ViewData["Message"] = "Hello " + name;
             ViewData["NumTimes"] = numTimes;
