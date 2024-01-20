@@ -25,3 +25,9 @@ For further exploration and learning, consider the following additional resource
 
 - Official ASP.NET Core Documentation - https://docs.microsoft.com/en-us/aspnet/core/
 - ASP.NET Core MVC Overview - https://docs.microsoft.com/en-us/aspnet/core/mvc/overview
+
+2024-01-18
+1434
+
+Part 4: Add a Model
+Implemented 

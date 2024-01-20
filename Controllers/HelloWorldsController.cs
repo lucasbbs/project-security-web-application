@@ -20,10 +20,55 @@ namespace WebApplication1.Controllers
         }
 
         // GET: HelloWorlds
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string movieGenre, string searchString)
         {
-            return View(await _context.HelloWorld.ToListAsync());
+            //    if (_context.HelloWorld == null)
+            //    {
+            //        return Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+            //    }
+            //
+            //    var movies = from m in _context.HelloWorld
+            //                 select m;
+            //
+            //    if (!String.IsNullOrEmpty(searchString))
+            //    {
+            //        movies = movies.Where(s => s.Title!.Contains(searchString));
+            //    }
+            //
+            //    return View(await movies.ToListAsync());
+            //    //return View(await _context.HelloWorld.ToListAsync());
+            if (_context.HelloWorld == null)
+            {
+                return Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+            }
+
+            // Use LINQ to get list of genres.
+            IQueryable<string> genreQuery = from m in _context.HelloWorld
+                                            orderby m.Genre
+                                            select m.Genre;
+            var helloWorlds = from m in _context.HelloWorld
+                         select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                helloWorlds = helloWorlds.Where(s => s.Title!.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                helloWorlds = helloWorlds.Where(x => x.Genre == movieGenre);
+            }
+
+            var movieGenreVM = new HelloWorldGenreViewModel
+            {
+                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                HelloWorlds = await helloWorlds.ToListAsync()
+            };
+
+            return View(movieGenreVM);
+
         }
+
 
         // GET: HelloWorlds/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -54,7 +99,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] HelloWorld helloWorld)
+        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] HelloWorld helloWorld)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +131,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] HelloWorld helloWorld)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] HelloWorld helloWorld)
         {
             if (id != helloWorld.Id)
             {
