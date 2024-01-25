@@ -52,3 +52,6 @@ I implemented validation for my application, ensuring data integrity by validati
 
 Part 10: Examine Details and Delete:
 I explored the details view and deletion functionality. I learned how to display detailed information and allow users to delete records.
+
+2024-01-25 1312
+Add an entry menu for movies
