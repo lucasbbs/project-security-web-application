@@ -30,7 +30,7 @@ For further exploration and learning, consider the following additional resource
 1434
 
 Part 4: Add a Model
-I learned about models and how to add them to my MVC application. Models represent the data and business logic of an application. 
+I learned about models and how to add them to my MVC application. Models represent the data and business logic of an application.
 
 2024-01-19
 2308
@@ -55,3 +55,4 @@ I explored the details view and deletion functionality. I learned how to display
 
 2024-01-25 1312
 Add an entry menu for movies
+Initial migration 20240118191446_InitialCreate
