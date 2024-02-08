@@ -22,33 +22,42 @@ namespace WebApplication1.Models
                 context.HelloWorld.AddRange(
                     new HelloWorld
                     {
-                        Title = "When Harry Met Sally",
+                        Title = "Harry Potter",
                         ReleaseDate = DateTime.Parse("1989-2-12"),
-                        Genre = "Romantic Comedy",
+                        Genre = "Fantasy",
+                        Rating = "Good",
                         Price = 7.99M
                     },
                     new HelloWorld
                     {
-                        Title = "Ghostbusters ",
+                        Title = "Titanic ",
                         ReleaseDate = DateTime.Parse("1984-3-13"),
-                        Genre = "Comedy",
-                        Rating = "R",
+                        Genre = "Romance",
+                        Rating = "Good",
                         Price = 8.99M
                     },
                     new HelloWorld
                     {
-                        Title = "Ghostbusters 2",
+                        Title = "Spider Man",
                         ReleaseDate = DateTime.Parse("1986-2-23"),
-                        Genre = "Comedy",
-                        Rating = "R",
+                        Genre = "Adventure",
+                        Rating = "Good",
                         Price = 9.99M
                     },
                     new HelloWorld
                     {
-                        Title = "Rio Bravo",
+                        Title = "Toy Story",
                         ReleaseDate = DateTime.Parse("1959-4-15"),
-                        Genre = "Western",
-                        Rating = "R",
+                        Genre = "Animation",
+                        Rating = "Good",
+                        Price = 3.99M
+                    },
+                    new HelloWorld
+                    {
+                        Title = "The Lion King",
+                        ReleaseDate = DateTime.Parse("1959-4-15"),
+                        Genre = "Animation",
+                        Rating = "Good",
                         Price = 3.99M
                     }
                 );
